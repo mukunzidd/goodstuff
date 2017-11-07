@@ -6,16 +6,26 @@ import axios from 'axios';
 // making the component
 class StuffList extends Component {
     // const { } = styles;
+    state = { items: [] };
+
+
     componentWillMount() {
         // alert('componentWillMount mounted!!!');
         axios.get('https://rallycoding.herokuapp.com/api/music_albums')
-            .then(response => console.log(response));
-        // debugger;
+            .then(response => this.setState({ items: response.data }));
     }
+
+
+    // Helper method to render the list of items
+    renderItems() {
+        return this.state.items.map(item => <Text>{item.title}</Text>);
+    }
+
     render() {
+        console.log(this.state);
         return (
             <View>
-                <Text>Good Shtuff Lister</Text>
+                {this.renderItems()}
             </View>
         );
     }
