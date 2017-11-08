@@ -1,8 +1,9 @@
 // imports
 import React from 'react';
-import { StyleSheet, Text, View, Image, Button } from 'react-native';
+import { StyleSheet, Text, View, Image, Button, Linking } from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
+// import Button from './Button';
 
 // Make a component
 const StuffDetail = (props) => {
@@ -25,7 +26,7 @@ const StuffDetail = (props) => {
 
             <CardSection>
                 <Image
-                    style={{width: 400, height: 360, resizeMode: Image.resizeMode.cover}}
+                    style={{width: 400, height: 320, resizeMode: Image.resizeMode.cover}}
                     source={{uri: props.stuff.image}}
                 />
             </CardSection>
@@ -33,6 +34,7 @@ const StuffDetail = (props) => {
             <CardSection>
                 <View style={btnStyle}>
                     <Button
+                        onPress={ ()=>{ Linking.openURL(props.stuff.url)}}
                         title="Buy On Amazon"
                         color="#841584"
                     />
@@ -55,7 +57,8 @@ const styles = {
         elevation: 2,    
     }, 
     textStyle: {
-        color: 'red',
+        fontSize: 18,
+        fontWeight: 'bold',
     },
     artistStyle: {
         justifyContent: 'center',
