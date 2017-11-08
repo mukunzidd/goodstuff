@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import axios from 'axios';
+import StuffDetail from './StuffDetail';
 
 // making the component
 class StuffList extends Component {
@@ -15,10 +16,11 @@ class StuffList extends Component {
             .then(response => this.setState({ items: response.data }));
     }
 
-
     // Helper method to render the list of items
     renderItems() {
-        return this.state.items.map(item => <Text>{item.title}</Text>);
+        return this.state.items.map(stuff =>
+            <StuffDetail key={stuff.title} stuff={stuff} />
+        );
     }
 
     render() {
