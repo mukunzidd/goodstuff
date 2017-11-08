@@ -1,19 +1,35 @@
 // imports
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, Text, Image } from 'react-native';
+import Card from './Card';
+import CardSection from './CardSection';
 
 // Make a component
 const StuffDetail = (props) => {
     const { textStyle, artistStyle, viewStyle } = styles;
 
     return (
-        <View style={viewStyle}>
-            <Text style={textStyle}>Song: {props.stuff.title}</Text>
-            <Text style={artistStyle}>Artist: {props.stuff.artist}</Text>
-            <Text>{props.stuff.url}</Text>
-            <Text>{props.stuff.thumbnail_image}</Text>
-            <Text>{props.stuff.image}</Text>
-        </View>
+        <Card>
+            <CardSection>
+                <Image
+                    style={{width: 50, height: 50}}
+                    source={{uri: props.stuff.thumbnail_image}}
+                />
+                <Text style={textStyle}>Album Title: {props.stuff.title}</Text>
+                <Text style={artistStyle}>Artist: {props.stuff.artist}</Text>
+            </CardSection>
+
+            <CardSection>
+                <Image
+                    style={{width: 340, height: 380}}
+                    source={{uri: props.stuff.image}}
+                />
+            </CardSection>
+
+            <CardSection>
+                <Text style={artistStyle}>Url: {props.stuff.url}</Text>
+            </CardSection>
+        </Card>
     );
 };
 
@@ -25,8 +41,8 @@ const styles = {
         borderWidth: 1,
         borderLeftWidth: 10,
         borderTopLeftRadius: 15,
-        borderBottomLeftRadius: 15,      
-        // backgroundColor: 'honeydew',
+        borderBottomLeftRadius: 15,  
+        elevation: 2,    
     }, 
     textStyle: {
         color: 'red',
