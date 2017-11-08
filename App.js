@@ -8,7 +8,7 @@ export default class App extends React.Component {
     return (
 
       // One Top Level Tag
-      <View>
+      <View style={{flex: 1}}>
         <Header headerText={'goodSTUFF'} />
         <StuffList />
       </View>

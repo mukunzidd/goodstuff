@@ -1,33 +1,43 @@
 // imports
 import React from 'react';
-import { StyleSheet, Text, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, Button } from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
 
 // Make a component
 const StuffDetail = (props) => {
-    const { textStyle, artistStyle, viewStyle } = styles;
+    const { textStyle, artistStyle, profileStyle,btnStyle, viewStyle } = styles;
 
     return (
         <Card>
             <CardSection>
+                <View>
                 <Image
-                    style={{width: 50, height: 50}}
+                    style={profileStyle}
                     source={{uri: props.stuff.thumbnail_image}}
                 />
-                <Text style={textStyle}>Album Title: {props.stuff.title}</Text>
-                <Text style={artistStyle}>Artist: {props.stuff.artist}</Text>
+                </View>
+                <View style={artistStyle}>
+                    <Text style={textStyle}>Album Title: {props.stuff.title}</Text>
+                    <Text>Artist: {props.stuff.artist}</Text>
+                </View>
             </CardSection>
 
             <CardSection>
                 <Image
-                    style={{width: 340, height: 380}}
+                    style={{width: 400, height: 360, resizeMode: Image.resizeMode.cover}}
                     source={{uri: props.stuff.image}}
                 />
             </CardSection>
 
             <CardSection>
-                <Text style={artistStyle}>Url: {props.stuff.url}</Text>
+                <View style={btnStyle}>
+                    <Button
+                        title="Buy On Amazon"
+                        color="#841584"
+                    />
+                </View>
+                {/* <Text style={artistStyle}>Url: {props.stuff.url}</Text> */}
             </CardSection>
         </Card>
     );
@@ -48,7 +58,22 @@ const styles = {
         color: 'red',
     },
     artistStyle: {
-        color: 'green',
+        justifyContent: 'center',
+        margin: 5,
+    },
+    profileStyle: {
+        margin: 5,
+        width: 50, 
+        height: 50, 
+        borderRadius: 200,
+    },
+    btnStyle:{
+        marginLeft: 50,
+        marginRight: 50,
+        marginTop: 10,
+        marginBottom: 10,
+        flex: 1,
+        justifyContent: 'flex-end',
     }
 };
 

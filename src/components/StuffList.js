@@ -1,6 +1,6 @@
 // imports libraries for making a component
 import React, { Component } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import axios from 'axios';
 import StuffDetail from './StuffDetail';
 
@@ -26,9 +26,9 @@ class StuffList extends Component {
     render() {
         console.log(this.state);
         return (
-            <View>
+            <ScrollView>
                 {this.renderItems()}
-            </View>
+            </ScrollView>
         );
     }
 }
