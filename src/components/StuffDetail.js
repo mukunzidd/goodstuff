@@ -7,16 +7,16 @@ import CardSection from './CardSection';
 
 // Make a component
 const StuffDetail = (props) => {
-    const { textStyle, artistStyle, profileStyle,btnStyle, viewStyle } = styles;
+    const { textStyle, artistStyle, profileStyle, btnStyle, viewStyle } = styles;
 
     return (
         <Card>
             <CardSection>
                 <View>
-                <Image
-                    style={profileStyle}
-                    source={{uri: props.stuff.thumbnail_image}}
-                />
+                    <Image
+                        style={profileStyle}
+                        source={{ uri: props.stuff.thumbnail_image }}
+                    />
                 </View>
                 <View style={artistStyle}>
                     <Text style={textStyle}>Album Title: {props.stuff.title}</Text>
@@ -26,16 +26,16 @@ const StuffDetail = (props) => {
 
             <CardSection>
                 <Image
-                    style={{width: 400, height: 320, resizeMode: Image.resizeMode.cover}}
-                    source={{uri: props.stuff.image}}
+                    style={{ width: 400, height: 320, resizeMode: Image.resizeMode.cover }}
+                    source={{ uri: props.stuff.image }}
                 />
             </CardSection>
 
             <CardSection>
                 <View style={btnStyle}>
                     <Button
-                        onPress={ ()=>{ Linking.openURL(props.stuff.url)}}
-                        title="Buy On Amazon"
+                        onPress={() => { Linking.openURL(props.stuff.url) }}
+                        title="Buy Now!"
                         color="#841584"
                     />
                 </View>
@@ -53,9 +53,9 @@ const styles = {
         borderWidth: 1,
         borderLeftWidth: 10,
         borderTopLeftRadius: 15,
-        borderBottomLeftRadius: 15,  
-        elevation: 2,    
-    }, 
+        borderBottomLeftRadius: 15,
+        elevation: 2,
+    },
     textStyle: {
         fontSize: 18,
         fontWeight: 'bold',
@@ -66,11 +66,11 @@ const styles = {
     },
     profileStyle: {
         margin: 5,
-        width: 50, 
-        height: 50, 
+        width: 50,
+        height: 50,
         borderRadius: 200,
     },
-    btnStyle:{
+    btnStyle: {
         marginLeft: 50,
         marginRight: 50,
         marginTop: 10,
